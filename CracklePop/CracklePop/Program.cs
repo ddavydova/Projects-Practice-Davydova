@@ -11,29 +11,30 @@ namespace CracklePop
         {
             Start: 
 
-            int answer;
 
             Console.WriteLine("Please, enter a number between 1 and 100:");
-            answer = Convert.ToInt32(Console.ReadLine());
+            string answer = Console.ReadLine();
+            int number;
 
-            if (answer<1 && answer>100 || answer<1 || answer>100)
+
+            if (int.TryParse(answer, out number) &&  number <1 && number >100 || number<1 || number>100)
             {
-                Console.WriteLine("The number is out of the listed range, try again!");
+                Console.WriteLine("The number is out of the listed range or the input is invalid, try again!");
                 goto Start;
             }
             else
             {
-                if (answer % 3 == 0 && answer % 5 == 0)
+                if (number % 3 == 0 && number % 5 == 0)
                 {
                     Console.WriteLine("CracklePop!");
                     Environment.Exit(-1);
                 }
-                else if (answer % 3 == 0 && answer % 5 != 0)
+                else if (number % 3 == 0 && number % 5 != 0)
                 {
                     Console.WriteLine("Crackle");
                     Environment.Exit(-1);
                 }
-                else if (answer % 3 != 0 && answer % 5 == 0)
+                else if (number % 3 != 0 && number % 5 == 0)
                 {
                     Console.WriteLine("Pop");
                     Environment.Exit(-1);
@@ -44,30 +45,7 @@ namespace CracklePop
                     Environment.Exit(-1);
                 }
             }
-         
 
-
-          //  bool newNumber = Int32.TryParse(answer, out number);
-          //  if (newNumber)
-          //  {
-          //      if( < 1 && newNumber >100)
-           //     {
-
-           //     }
-          //  }
-          //  else
-          //      Console.WriteLine("Could not be parsed.");
-
-         //   if (int.TryParse(answer, out number) == false)
-         //  {
-         //     Console.WriteLine("Sorry, invalid number, goodbye!");
-         //      Environment.Exit(-1);
-         //  }
-
-           //  if (number < 1 && number > 100)
-           //  {
-           //      Console.WriteLine("Please, enter a number between 1 and 100");}
-           
         }
     }
 }
